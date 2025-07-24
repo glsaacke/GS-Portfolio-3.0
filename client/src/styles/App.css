@@ -1,5 +1,10 @@
+body {
+  background-color: #363432;
+  display: flex;
+}
+
 .app-container {
   height: 100vh;
-  width: 100vw;
-  background-color: #363432;
+  width: 90vw;
+  align-self: center;
 }

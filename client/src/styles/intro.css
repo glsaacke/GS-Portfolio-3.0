@@ -1,0 +1,35 @@
+.intro-container {
+    margin-top: 5vw;
+}
+
+.title-container {
+    display: flex;
+}
+
+.pfp {
+    display: flex;
+    padding: 0;
+}
+
+.pfp img {
+    width: 100%;
+    border-radius: 50%;
+    border: white solid 2px;
+}
+
+.title-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 10px;
+}
+
+.title-text h1 {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.title-text h4 {
+    margin: 0;
+    padding: 2px 0;
+}
