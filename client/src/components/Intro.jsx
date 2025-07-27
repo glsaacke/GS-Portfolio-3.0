@@ -2,7 +2,7 @@ import "../styles/intro.css"
 
 const Intro = () => {
     return ( 
-        <div className="intro-container container bdr">
+        <section className="intro-container container bdr">
             <div className="title-container row">
                 <img className="pfp" src="../BigRings.jpg" alt="Picture of Gavin Saacke" />
                 <div className="title-text">
@@ -39,7 +39,7 @@ const Intro = () => {
                     </svg>
                 </a>
             </div>
-        </div>
+        </section>
      );
 }
  

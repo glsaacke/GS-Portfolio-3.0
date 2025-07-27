@@ -1,0 +1,28 @@
+.segmented-control {
+    display: flex;
+    border: 2px solid white;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .segment {
+    flex: 1;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .segment.active {
+    background: white;
+    color: black;
+  }
+  
+  .content {
+    display: none;
+  }
+  .content.visible {
+    display: block;
+  }
