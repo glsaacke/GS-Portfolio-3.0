@@ -1,28 +1,15 @@
 .segmented-control {
-    display: flex;
-    border: 2px solid white;
-    border-radius: 8px;
-    overflow: hidden;
-  }
+  display: flex;
+  border: 2px solid white;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 5px
+}
+
+.sc-button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 8px;
+  width: 50%;
+}
   
-  .segment {
-    flex: 1;
-    padding: 10px;
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .segment.active {
-    background: white;
-    color: black;
-  }
-  
-  .content {
-    display: none;
-  }
-  .content.visible {
-    display: block;
-  }

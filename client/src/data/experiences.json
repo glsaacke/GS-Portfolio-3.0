@@ -1,0 +1,17 @@
+[
+    {
+        "id" : 1,
+      "dateString": "Jun 2025 - Present",
+      "company": "Moultrie",
+      "title": "Software Engineer I",
+      "description": "Here is where the description goes"
+    },
+    {
+        "id" : 2,
+      "dateString": "Aug 2024 - Jan 2025",
+      "company": "Moultrie",
+      "title": "Software Engineer (part-time)",
+      "description": "Here is where the description goes"
+    }
+  ]
+  
