@@ -42,18 +42,18 @@ h2 {
 
 h3 {
   font-family: "DM Sans", sans-serif;
-  font-size: 3rem;
+  font-size: 1.7rem;
   font-optical-sizing: auto;
   font-weight: bold;
   font-style: normal;
-  color: #333A56;
+  color: white;
 }
 
 h4{
   font-family: "DM Sans", sans-serif;
   font-size: 1.3rem;
   font-optical-sizing: auto;
-  font-style: normal;
+  font-style: bold;
   color: white;
 }
 
@@ -61,7 +61,7 @@ p {
   font-family: "DM Sans", sans-serif;
   font-size: 1.3rem;
   font-optical-sizing: auto;
-  font-weight: normal;
+  font-weight: lighter;
   font-style: normal;
   color: white;
 }

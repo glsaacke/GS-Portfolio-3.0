@@ -1,5 +1,6 @@
 import "../styles/Experience.css"
 import experienceData from "../data/experiences.json";
+import educationData from "../data/education.json"
 import { useState, useEffect } from "react";
 import ExpCard from "./ExpCard";
 
@@ -17,7 +18,6 @@ const Experience = () => {
     
     return ( 
         <section className="experience-container">
-            
                 {isTabExp ? 
                     <>
                         <div class="segmented-control">
@@ -26,7 +26,7 @@ const Experience = () => {
                         </div> 
                         <div className="experience-content">
                             {experienceData.map(exp => (
-                                <ExpCard experience={exp} key={exp.id}/>
+                                <ExpCard experience={exp} isEducation={false} key={exp.id}/>
                             ))}
                         </div>
                     </>
@@ -35,6 +35,11 @@ const Experience = () => {
                         <div class="segmented-control">
                             <button className="sc-button" onClick={handleSwapExperience} style={{backgroundColor: "#363432", color: "white"}}>Experience</button>
                             <button className="sc-button" onClick={handleSwapExperience} style={{backgroundColor: "white", color: "#363432"}}>Education</button>
+                        </div>
+                        <div className="experience-content">
+                            {educationData.map(edu => (
+                                    <ExpCard experience={edu} isEducation={true} key={edu.id}/>
+                            ))}
                         </div>
                     </>
                 }

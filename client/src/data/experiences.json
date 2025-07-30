@@ -1,17 +1,38 @@
 [
     {
         "id" : 1,
-      "dateString": "Jun 2025 - Present",
-      "company": "Moultrie",
-      "title": "Software Engineer I",
-      "description": "Here is where the description goes"
+        "dateString": "Jun 2025 - Present",
+        "company": "Moultrie",
+        "title": "Software Engineer I",
+        "description": "Here is where the description goes"
     },
     {
         "id" : 2,
-      "dateString": "Aug 2024 - Jan 2025",
+        "dateString": "Aug 2024 - Jan 2025",
+        "company": "Moultrie",
+        "title": "Software Engineer (part-time)",
+        "description": "C# API development, SQL migration, and Agile collaboration"
+    },
+    {
+      "id" : 3,
+      "dateString": "May 2024 - Jul 2024",
       "company": "Moultrie",
-      "title": "Software Engineer (part-time)",
-      "description": "Here is where the description goes"
+      "title": "Software Engineering Intern",
+      "description": ".NET MAUI App development and endpoint load testing"
+    },
+    {
+      "id" : 4,
+      "dateString": "Feb 2024 - Apr 2024",
+      "company": "Alabama Athletics",
+      "title": "Sports Data Analytics Intern",
+      "description": "Python ETL & dynamic Tableau dashboards for golf program insights"
+    },
+    {
+      "id" : 5,
+      "dateString": "Aug 2021 - May 2025",
+      "company": "NCAA Track/Cross Country",
+      "title": "Division I Student-Athlete",
+      "description": "National-level NCAA athlete & SEC champion"
     }
   ]
   

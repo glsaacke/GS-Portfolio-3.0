@@ -2,7 +2,7 @@ import "../styles/intro.css"
 
 const Intro = () => {
     return ( 
-        <section className="intro-container container bdr">
+        <section className="intro-container container">
             <div className="title-container row">
                 <img className="pfp" src="../BigRings.jpg" alt="Picture of Gavin Saacke" />
                 <div className="title-text">

@@ -3,7 +3,8 @@
   border: 2px solid white;
   border-radius: 12px;
   overflow: hidden;
-  padding: 5px
+  padding: 5px;
+  margin: 20px 0;
 }
 
 .sc-button {
@@ -11,5 +12,27 @@
   border: none;
   border-radius: 8px;
   width: 50%;
+}
+
+p {
+  color: white;
+}
+
+/* expCard */
+.expCard-container {
+  display: flex;
+  margin-bottom: 26px;
+}
+
+.expCard-container img {
+  height: 54px;
+  width: 54px;
+  border-radius: 10px;
+  margin-right: 20px;
+  margin-top: 4px;
+}
+
+.exp-info h3, .exp-info h4, .exp-info p {
+  margin: 2px 0;
 }
   
