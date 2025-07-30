@@ -8,10 +8,6 @@ const Experience = () => {
     const [isTabExp, setIsTabExp] = useState(true);
     const [experiences, setExperiences] = useState([])
 
-    useEffect(() => {
-        
-    }, [])
-
     function handleSwapExperience(){
         setIsTabExp(prev => !prev)
     }

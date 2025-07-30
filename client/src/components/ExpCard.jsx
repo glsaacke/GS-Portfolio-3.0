@@ -3,10 +3,6 @@ import { useState, useEffect } from "react";
 
 const ExpCard = ({experience, isEducation}) => {
 
-    useEffect(() => {
-        console.log(experience)
-    }, [])
-
     function formatCompanyName(name){
         return name.toLowerCase().replace(/\s+/g, "-");
     };
