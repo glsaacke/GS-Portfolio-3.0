@@ -6,7 +6,7 @@ import SkillCard from "./SkillCard";
 const Skills = () => {
 
     return ( 
-        <div className="skills-container bdr">
+        <div className="skills-container">
             <h2>Skills</h2>
             <div className="skills">
                 {skillsData.map(skl => (

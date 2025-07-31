@@ -2,37 +2,68 @@
     {
         "id" : 1,
         "name": "C#",
+        "file": "c-sharp",
         "hex": "#9b499320"
     },
     {
         "id" : 2,
         "name": "Dotnet",
+        "file": "dotnet",
         "hex": "#512BD420"
     },
     {
         "id" : 3,
         "name": "React",
+        "file": "react",
         "hex": "#61DBFB20"
     },
     {
         "id" : 4,
         "name": "JavaScript",
+        "file": "javascript",
         "hex": "#f0db4f20"
     },
     {
         "id" : 5,
         "name": "CSS",
+        "file": "css",
         "hex": "#2965f120"
     },
     {
         "id" : 6,
         "name": "HTML",
+        "file": "html",
         "hex": "#e34c2620"
     },
     {
         "id" : 7,
         "name": "Docker",
+        "file": "docker",
         "hex": "#1D63ED20"
+    }, 
+    {
+        "id" : 8,
+        "name": "MySQL",
+        "file": "mysql",
+        "hex": "#ED913720"
+    },
+    {
+        "id" : 9,
+        "name": "Python",
+        "file": "python",
+        "hex": "#FFC10720"
+    },
+    {
+        "id" : 10,
+        "name": "GitHub",
+        "file": "github",
+        "hex": "#855ACD20"
+    },
+    {
+        "id" : 11,
+        "name": "Azure",
+        "file": "azure",
+        "hex": "#2892DF20"
     }
   ]
   

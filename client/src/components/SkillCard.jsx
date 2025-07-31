@@ -5,7 +5,7 @@ const SkillCard = ({skill}) => {
     const [hovered, setHovered] = useState(false);
 
     useEffect(() => {
-        console.log(`${skill.name.toLowerCase()}.svg`)
+        console.log(`${skill.file}.svg`)
     }, [])
 
     return ( 
@@ -17,7 +17,7 @@ const SkillCard = ({skill}) => {
                 backgroundColor: hovered ? skill.hex : "transparent",
                 transition: "background-color 0.2s ease"}}>
 
-            <img src={`../skillIcons/${skill.name.toLowerCase()}.svg`} alt="" />
+            <img src={`../skillIcons/${skill.file}.svg`} alt="" />
             <h4>{skill.name}</h4>
         </span>
      );
