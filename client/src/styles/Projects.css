@@ -9,6 +9,9 @@
 
 .project-card-container {
     padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card  {
@@ -20,7 +23,8 @@
     padding: 20px 20px;
     gap: 10px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    align-items: stretch;
 }
 
 .project-card:hover {
@@ -36,6 +40,7 @@
 
 .project-card-description {
     font-weight:normal;
+    flex: 1;
 }
 
 .proj-skill-container {
@@ -59,3 +64,15 @@
     margin: 0;
     font-size: 1.1rem;
 }
+
+@media (min-width: 1300px) {
+    .project-card-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4%
+    }
+
+    .project-card {
+      width: 48%;
+    }
+  }

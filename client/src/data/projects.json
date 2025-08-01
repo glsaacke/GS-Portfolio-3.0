@@ -3,30 +3,40 @@
         "id" : 0,
         "name": "HCA Cloud Portal",
         "description": "This project is a responsive web application designed to provide HCA developers with a streamlined interface for creating Google Cloud sandbox environments. In addition to environment provisioning, the portal offers educational resources and documentation to help users explore and learn about various Google Cloud services and features.",
-        "imgSrc": "hca.jpg",
+        "imgSrc": "hca.PNG",
         "link": "https://github.com/glsaacke/HCA-Cloud-Portal",
         "skills": [
-            "React", "JavaScript", "C#", "ASP.NET", "Google Cloud", "Docker"
+            "React", "JavaScript", "C#", "ASP.NET", "CSS", "HTML", "Google Cloud", "Docker"
         ]
     },
     {
         "id" : 1,
         "name": "ForzaTrack",
         "description": "Web app for Forza Horizon 5 players to log lap times, compare builds, and track performance over time. With filtering, comparisons, and a personal dashboard, it helps racers improve efficiently.",
-        "imgSrc": "forzatrack.png",
+        "imgSrc": "forzatrack.PNG",
         "link": "https://forzatrack.vercel.app/",
         "skills": [
-            "React", "JavaScript", "C#", "ASP.NET", "MySQL", "Docker"
+            "React", "JavaScript", "C#", "ASP.NET", "CSS", "HTML", "MySQL", "Docker"
         ]
     },
     {
         "id" : 2,
         "name": "Squared Icon Theme",
         "description": "A custom file icon theme designed for Visual Studio Code with minimalistic folder designs and square, uniform file icons.",
-        "imgSrc": "squared.png",
+        "imgSrc": "squared.PNG",
         "link": "https://marketplace.visualstudio.com/items?itemName=glsaacke.squared-icon-theme",
         "skills": [
             "JavaScript", "Azure DevOps"
+        ]
+    },
+    {
+        "id" : 3,
+        "name": "Portfolio Site",
+        "description": "My personal portfolio site (this site!) showcasing my work and experience.",
+        "imgSrc": "portfolio.PNG",
+        "link": "https://marketplace.visualstudio.com/items?itemName=glsaacke.squared-icon-theme",
+        "skills": [
+            "React", "JavaScript", "CSS", "HTML"
         ]
     }
 ]

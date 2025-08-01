@@ -8,3 +8,9 @@ body {
   width: 90vw;
   align-self: center;
 }
+
+@media (min-width: 900px) {
+  .app-container {
+    width: 50vw;
+  }
+}
