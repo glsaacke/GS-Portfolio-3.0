@@ -1,0 +1,15 @@
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.footer-container span {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-container p {
+    color: lightgrey;
+    margin: 2px 0;
+}
