@@ -1,13 +1,24 @@
 body {
-  background-color: #363432;
+  background-color: #2b2927;
   display: flex;
 }
 
 .app-container {
   height: 100vh;
-  width: 90vw;
+  width: 85vw;
   align-self: center;
 }
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #2b2927; /* optional */
+}
+
 
 @media (min-width: 900px) {
   .app-container {

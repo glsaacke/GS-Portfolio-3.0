@@ -1,6 +1,6 @@
 .intro-container {
     margin-top: 5vw;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 
 .title-container {
@@ -14,8 +14,8 @@
     padding: 0;
     border-radius: 50%;
     border: white solid 2px;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
 }
 
 .pfp img {
@@ -33,7 +33,7 @@
 
 .title-text h1 {
     margin: 0;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 .title-text h4 {
@@ -63,7 +63,7 @@
     font-family: "DM Sans", sans-serif;
     font-size: 1.3rem;
     color: white;
-    background-color: #363432;
+    background-color: #2b2927;
     padding: 3px 15px;
     border: 2px white solid;
     border-radius: 8px;
@@ -86,7 +86,7 @@ a.resume-btn:active {
 
 .link-btn {
     color: white;
-    background-color: #363432;
+    background-color: #2b2927;
     border: none;
     margin-right: 30px;
     display: flex;
@@ -95,3 +95,15 @@ a.resume-btn:active {
 .link-btn:hover {
     color: white;
 }
+
+@media (max-width: 450px) {
+    .pfp {
+        width: 80px;
+        height: 80px;
+    }
+
+    .title-text h1 {
+        margin: 0;
+        margin-bottom: 5px;
+    }
+  }

@@ -1,11 +1,11 @@
 .skills-container {
     display: flex;
     flex-direction: column;
-    margin-bottom: 26px;
+    margin-bottom: 50px;
 }
 
 .skills-container h2 {
-    margin: 20px 0;
+    margin: 40px 0;
 }
 
 .skills {
@@ -20,8 +20,8 @@
     border: 1px solid lightgray;
     border-radius: 8px;
     padding: 0 14px;
-    margin-right: 5px;
-    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
     transition: transform 0.5s ease, box-shadow 0.2s ease-in-out;
 }
 

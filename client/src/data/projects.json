@@ -2,7 +2,7 @@
     {
         "id" : 0,
         "name": "HCA Cloud Portal",
-        "description": "This project is a responsive web application designed to provide HCA developers with a streamlined interface for creating Google Cloud sandbox environments. In addition to environment provisioning, the portal offers educational resources and documentation to help users explore and learn about various Google Cloud services and features.",
+        "description": "Responsive web app that enables HCA developers to quickly create pre-configured Google Cloud sandbox environments, with built-in educational resources and engagement analytics to support learning and exploration",
         "imgSrc": "hca.PNG",
         "link": "https://github.com/glsaacke/HCA-Cloud-Portal",
         "skills": [
@@ -12,7 +12,7 @@
     {
         "id" : 1,
         "name": "ForzaTrack",
-        "description": "Web app for Forza Horizon 5 players to log lap times, compare builds, and track performance over time. With filtering, comparisons, and a personal dashboard, it helps racers improve efficiently.",
+        "description": "Web app for Forza Horizon 5 players to log lap times, compare car builds, and track performance over time.",
         "imgSrc": "forzatrack.PNG",
         "link": "https://forzatrack.vercel.app/",
         "skills": [
@@ -22,7 +22,7 @@
     {
         "id" : 2,
         "name": "Squared Icon Theme",
-        "description": "A custom file icon theme designed for Visual Studio Code with minimalistic folder designs and square, uniform file icons.",
+        "description": "Custom file icon theme designed for Visual Studio Code with minimalistic folder designs and square, uniform file icons.",
         "imgSrc": "squared.PNG",
         "link": "https://marketplace.visualstudio.com/items?itemName=glsaacke.squared-icon-theme",
         "skills": [

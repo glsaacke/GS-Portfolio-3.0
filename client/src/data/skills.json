@@ -12,6 +12,12 @@
         "hex": "#512BD420"
     },
     {
+        "id" : 12,
+        "name": ".NET MAUI",
+        "file": "dotnet-maui",
+        "hex": "#7a7dff20"
+    },
+    {
         "id" : 3,
         "name": "React",
         "file": "react",

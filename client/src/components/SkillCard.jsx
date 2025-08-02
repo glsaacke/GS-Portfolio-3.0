@@ -4,10 +4,6 @@ import { useState, useEffect } from "react";
 const SkillCard = ({skill}) => {
     const [hovered, setHovered] = useState(false);
 
-    useEffect(() => {
-        console.log(`${skill.file}.svg`)
-    }, [])
-
     return ( 
         <span 
             className="skillCard-container" 

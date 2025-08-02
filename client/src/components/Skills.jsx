@@ -10,7 +10,7 @@ const Skills = () => {
             <h2>Skills</h2>
             <div className="skills">
                 {skillsData.map(skl => (
-                    <SkillCard skill={skl}/>
+                    <SkillCard skill={skl} key={skl.id}/>
                 ))}
             </div>
         </div>

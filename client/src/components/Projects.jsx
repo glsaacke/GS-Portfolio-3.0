@@ -6,15 +6,15 @@ const Projects = () => {
         <div className="projects-container ">
             <h2>Projects</h2>
             <div className="project-card-container">
-                {projectData.map(proj => (
+                {projectData.map((proj, index) => (
 
-                    <a className="project-card" href={proj.link} target="_blank" rel="noopener noreferrer">
+                    <a className="project-card" href={proj.link} target="_blank" rel="noopener noreferrer" key={index}>
                         <img src={`../projImg/${proj.imgSrc}`} alt="" />
                         <h3>{proj.name}</h3>
                         <p className="project-card-description">{proj.description}</p>
                         <div className="proj-skill-container">
-                            {proj.skills.map(skill => (
-                                <div className="proj-skill">
+                            {proj.skills.map((skill, index) => (
+                                <div className="proj-skill" key={index}>
                                     <p>{skill}</p>
                                 </div>
                             ))}

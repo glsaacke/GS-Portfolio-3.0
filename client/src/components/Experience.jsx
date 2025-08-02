@@ -16,9 +16,9 @@ const Experience = () => {
         <section className="experience-container">
                 {isTabExp ? 
                     <>
-                        <div class="segmented-control">
-                            <button className="sc-button" onClick={handleSwapExperience} style={{backgroundColor: "white", color: "#363432"}}>Experience</button>
-                            <button className="sc-button" onClick={handleSwapExperience} style={{backgroundColor: "#363432", color: "white"}}>Education</button>
+                        <div className="segmented-control">
+                            <button className="sc-button" onClick={handleSwapExperience} style={{backgroundColor: "white", color: "#2b2927"}}>Experience</button>
+                            <button className="sc-button" onClick={handleSwapExperience} style={{backgroundColor: "#2b2927", color: "white"}}>Education</button>
                         </div> 
                         <div className="experience-content">
                             {experienceData.map(exp => (
@@ -29,8 +29,8 @@ const Experience = () => {
                     :
                     <>
                         <div class="segmented-control">
-                            <button className="sc-button" onClick={handleSwapExperience} style={{backgroundColor: "#363432", color: "white"}}>Experience</button>
-                            <button className="sc-button" onClick={handleSwapExperience} style={{backgroundColor: "white", color: "#363432"}}>Education</button>
+                            <button className="sc-button" onClick={handleSwapExperience} style={{backgroundColor: "#2b2927", color: "white"}}>Experience</button>
+                            <button className="sc-button" onClick={handleSwapExperience} style={{backgroundColor: "white", color: "#2b2927"}}>Education</button>
                         </div>
                         <div className="experience-content">
                             {educationData.map(edu => (
