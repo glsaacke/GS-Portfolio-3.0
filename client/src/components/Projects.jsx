@@ -9,7 +9,7 @@ const Projects = () => {
                 {projectData.map((proj, index) => (
 
                     <a className="project-card" href={proj.link} target="_blank" rel="noopener noreferrer" key={index}>
-                        <img src={`../projImg/${proj.imgSrc}`} alt="" />
+                        <img src={`/projImg/${proj.imgSrc}`} alt="" />
                         <h3>{proj.name}</h3>
                         <p className="project-card-description">{proj.description}</p>
                         <div className="proj-skill-container">
