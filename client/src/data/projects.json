@@ -34,7 +34,7 @@
         "name": "Portfolio Site",
         "description": "My personal portfolio site (this site!) showcasing my work and experience.",
         "imgSrc": "portfolio-ss.png",
-        "link": "https://marketplace.visualstudio.com/items?itemName=glsaacke.squared-icon-theme",
+        "link": "https://github.com/glsaacke/GS-Portfolio-3.0",
         "skills": [
             "React", "JavaScript", "CSS", "HTML"
         ]
