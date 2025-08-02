@@ -13,7 +13,7 @@
         "id" : 1,
         "name": "ForzaTrack",
         "description": "Web app for Forza Horizon 5 players to log lap times, compare car builds, and track performance over time.",
-        "imgSrc": "forzatrack.ss-png",
+        "imgSrc": "forzatrack-ss.png",
         "link": "https://forzatrack.vercel.app/",
         "skills": [
             "React", "JavaScript", "C#", "ASP.NET", "CSS", "HTML", "MySQL", "Docker"
