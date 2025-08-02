@@ -42,12 +42,12 @@ function App() {
   }, []);
 
   return (
-      <div className='app-container '>
-      
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-
+      <div>
+        <div className='app-container rbd'>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </div>
       </div>
   )
 }
