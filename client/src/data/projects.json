@@ -3,7 +3,7 @@
         "id" : 0,
         "name": "HCA Cloud Portal",
         "description": "Responsive web app that enables HCA developers to quickly create pre-configured Google Cloud sandbox environments, with built-in educational resources and engagement analytics to support learning and exploration",
-        "imgSrc": "hca.PNG",
+        "imgSrc": "hca-ss.png",
         "link": "https://github.com/glsaacke/HCA-Cloud-Portal",
         "skills": [
             "React", "JavaScript", "C#", "ASP.NET", "CSS", "HTML", "Google Cloud", "Docker"
@@ -13,7 +13,7 @@
         "id" : 1,
         "name": "ForzaTrack",
         "description": "Web app for Forza Horizon 5 players to log lap times, compare car builds, and track performance over time.",
-        "imgSrc": "forzatrack.PNG",
+        "imgSrc": "forzatrack.ss-png",
         "link": "https://forzatrack.vercel.app/",
         "skills": [
             "React", "JavaScript", "C#", "ASP.NET", "CSS", "HTML", "MySQL", "Docker"
@@ -23,7 +23,7 @@
         "id" : 2,
         "name": "Squared Icon Theme",
         "description": "Custom file icon theme designed for Visual Studio Code with minimalistic folder designs and square, uniform file icons.",
-        "imgSrc": "squared.PNG",
+        "imgSrc": "squared-ss.png",
         "link": "https://marketplace.visualstudio.com/items?itemName=glsaacke.squared-icon-theme",
         "skills": [
             "JavaScript", "Azure DevOps"
@@ -33,7 +33,7 @@
         "id" : 3,
         "name": "Portfolio Site",
         "description": "My personal portfolio site (this site!) showcasing my work and experience.",
-        "imgSrc": "portfolio.PNG",
+        "imgSrc": "portfolio-ss.png",
         "link": "https://marketplace.visualstudio.com/items?itemName=glsaacke.squared-icon-theme",
         "skills": [
             "React", "JavaScript", "CSS", "HTML"
