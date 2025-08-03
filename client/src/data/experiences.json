@@ -7,18 +7,11 @@
         "description": ".NET MAUI App development and C# API development"
     },
     {
-        "id" : 2,
-        "dateString": "Aug 2024 - Jan 2025",
-        "company": "Moultrie",
-        "title": "Software Engineer (part-time)",
-        "description": "C# API development, SQL migration, and Agile collaboration"
-    },
-    {
       "id" : 3,
-      "dateString": "May 2024 - Jul 2024",
+      "dateString": "May 2024 - Jan 2025",
       "company": "Moultrie",
       "title": "Software Engineering Intern",
-      "description": ".NET MAUI App development and endpoint load testing"
+      "description": ".NET MAUI App development, C# API development, SQL migration and endpoint load testing"
     },
     {
       "id" : 4,
