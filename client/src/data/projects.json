@@ -4,7 +4,8 @@
         "name": "HCA Cloud Portal",
         "description": "Responsive web app that enables HCA developers to quickly create pre-configured Google Cloud sandbox environments, with built-in educational resources and engagement analytics to support learning and exploration",
         "imgSrc": "hca-ss.png",
-        "link": "https://github.com/glsaacke/HCA-Cloud-Portal",
+        "link": "none",
+        "source": "https://github.com/glsaacke/HCA-Cloud-Portal",
         "skills": [
             "React", "JavaScript", "C#", "ASP.NET", "CSS", "HTML", "Google Cloud", "Docker"
         ]
@@ -15,6 +16,7 @@
         "description": "Web app for Forza Horizon 5 players to log lap times, compare car builds, and track performance over time.",
         "imgSrc": "forzatrack-ss.png",
         "link": "https://forzatrack.vercel.app/",
+        "source": "https://github.com/glsaacke/forzatrack",
         "skills": [
             "React", "JavaScript", "C#", "ASP.NET", "CSS", "HTML", "MySQL", "Docker"
         ]
@@ -25,6 +27,7 @@
         "description": "Custom file icon theme designed for Visual Studio Code with minimalistic folder designs and square, uniform file icons.",
         "imgSrc": "squared-ss.png",
         "link": "https://marketplace.visualstudio.com/items?itemName=glsaacke.squared-icon-theme",
+        "source": "https://github.com/glsaacke/squared-icon-theme",
         "skills": [
             "JavaScript", "Azure DevOps"
         ]
@@ -35,6 +38,7 @@
         "description": "My personal portfolio site (this site!) showcasing my work and experience.",
         "imgSrc": "portfolio-ss.png",
         "link": "https://github.com/glsaacke/GS-Portfolio-3.0",
+        "source": "https://github.com/glsaacke/GS-Portfolio-3.0",
         "skills": [
             "React", "JavaScript", "CSS", "HTML"
         ]

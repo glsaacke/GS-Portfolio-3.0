@@ -39,6 +39,29 @@
     border: 1px solid lightgrey;
 }
 
+.project-links {
+    display: flex;
+    align-items: center;
+}
+
+.project-links a {
+    border: 1px white solid;
+    color: white;
+    text-decoration: none;
+    border-radius: 16px;
+    padding: 8px 10px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.project-links a:hover {
+    color: #3c3a39;
+    background-color: white;
+    text-decoration: none;
+}
+
 .project-card-description {
     font-weight:normal;
     flex: 1;
