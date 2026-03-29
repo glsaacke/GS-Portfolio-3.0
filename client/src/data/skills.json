@@ -60,6 +60,12 @@
         "hex": "#ED913720"
     },
     {
+        "id" : 9,
+        "name": "Python",
+        "file": "python",
+        "hex": "#3776AB20"
+    },
+    {
         "id" : 10,
         "name": "GitHub",
         "file": "github",
