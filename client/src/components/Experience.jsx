@@ -1,46 +1,60 @@
 import "../styles/Experience.css"
 import experienceData from "../data/experiences.json";
 import educationData from "../data/education.json"
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import ExpCard from "./ExpCard";
 
 const Experience = () => {
     const [isTabExp, setIsTabExp] = useState(true);
-    const [experiences, setExperiences] = useState([])
+    const expRef = useRef(null);
+    const eduRef = useRef(null);
+    const [wrapperHeight, setWrapperHeight] = useState("auto");
 
-    function handleSwapExperience(){
-        setIsTabExp(prev => !prev)
-    }
+    const updateHeight = useCallback(() => {
+        const activeRef = isTabExp ? expRef : eduRef;
+        const h = activeRef.current?.scrollHeight || 0;
+        setWrapperHeight(h);
+    }, [isTabExp]);
+
+    useEffect(() => {
+        updateHeight();
+        window.addEventListener("resize", updateHeight);
+        return () => window.removeEventListener("resize", updateHeight);
+    }, [updateHeight]);
     
     return ( 
         <section className="experience-container">
-                {isTabExp ? 
-                    <>
-                        <div className="segmented-control">
-                            <button className="sc-button" onClick={handleSwapExperience} style={{backgroundColor: "white", color: "#2b2927"}}>Experience</button>
-                            <button className="sc-button" onClick={handleSwapExperience} style={{backgroundColor: "#2b2927", color: "white"}}>Education</button>
-                        </div> 
-                        <div className="experience-content">
-                            {experienceData.map(exp => (
-                                <ExpCard experience={exp} isEducation={false} key={exp.id}/>
-                            ))}
-                        </div>
-                    </>
-                    :
-                    <>
-                        <div class="segmented-control">
-                            <button className="sc-button" onClick={handleSwapExperience} style={{backgroundColor: "#2b2927", color: "white"}}>Experience</button>
-                            <button className="sc-button" onClick={handleSwapExperience} style={{backgroundColor: "white", color: "#2b2927"}}>Education</button>
-                        </div>
-                        <div className="experience-content">
-                            {educationData.map(edu => (
-                                    <ExpCard experience={edu} isEducation={true} key={edu.id}/>
-                            ))}
-                        </div>
-                    </>
-                }
-                
-            
+            <div className="segmented-control">
+                <button
+                    className={`sc-button ${isTabExp ? "sc-button-active" : ""}`}
+                    onClick={() => setIsTabExp(true)}
+                >
+                    Experience
+                </button>
+                <button
+                    className={`sc-button ${!isTabExp ? "sc-button-active" : ""}`}
+                    onClick={() => setIsTabExp(false)}
+                >
+                    Education
+                </button>
+            </div>
+
+            <div className="tab-content-wrapper" style={{ height: wrapperHeight }}>
+                <div ref={expRef} className={`tab-panel ${isTabExp ? "tab-panel-active" : "tab-panel-hidden"}`}>
+                    <div className="experience-content">
+                        {experienceData.map(exp => (
+                            <ExpCard experience={exp} isEducation={false} key={exp.id}/>
+                        ))}
+                    </div>
+                </div>
+                <div ref={eduRef} className={`tab-panel ${!isTabExp ? "tab-panel-active" : "tab-panel-hidden"}`}>
+                    <div className="experience-content">
+                        {educationData.map(edu => (
+                            <ExpCard experience={edu} isEducation={true} key={edu.id}/>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </section>
      );
 }

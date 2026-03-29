@@ -13,6 +13,41 @@
   border: none;
   border-radius: 8px;
   width: 50%;
+  background-color: #2b2927;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sc-button-active {
+  background-color: white;
+  color: #2b2927;
+}
+
+/* Tab transition */
+.tab-content-wrapper {
+  position: relative;
+  overflow: hidden;
+  transition: height 0.35s ease;
+}
+
+.tab-panel {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.tab-panel-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tab-panel-hidden {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  transform: translateY(8px);
 }
 
 p {

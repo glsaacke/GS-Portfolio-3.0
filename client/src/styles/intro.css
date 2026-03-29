@@ -14,8 +14,8 @@
     padding: 0;
     border-radius: 50%;
     border: white solid 2px;
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
 }
 
 .pfp img {
@@ -34,6 +34,7 @@
 .title-text h1 {
     margin: 0;
     margin-bottom: 8px;
+    
 }
 
 .title-text h4 {

@@ -30,6 +30,12 @@
         "hex": "#f0db4f20"
     },
     {
+        "id" : 13,
+        "name": "TypeScript",
+        "file": "typescript",
+        "hex": "#3178c620"
+    },
+    {
         "id" : 5,
         "name": "CSS",
         "file": "css",
@@ -54,12 +60,6 @@
         "hex": "#ED913720"
     },
     {
-        "id" : 9,
-        "name": "Python",
-        "file": "python",
-        "hex": "#FFC10720"
-    },
-    {
         "id" : 10,
         "name": "GitHub",
         "file": "github",
@@ -70,6 +70,18 @@
         "name": "Azure",
         "file": "azure",
         "hex": "#2892DF20"
+    },
+    {
+        "id" : 14,
+        "name": "GitHub Copilot",
+        "file": "copilot",
+        "hex": "#8FEFDD20"
+    },
+    {
+        "id" : 15,
+        "name": "Claude Code",
+        "file": "claude-code",
+        "hex": "#D9775720"
     }
   ]
   
