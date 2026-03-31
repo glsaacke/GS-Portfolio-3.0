@@ -2,15 +2,20 @@ export default async function handler(req, res) {
     const { STRAVA_CLIENT_ID, STRAVA_CLIENT_SECRET, STRAVA_REFRESH_TOKEN } = process.env;
 
     if (!STRAVA_CLIENT_ID || !STRAVA_CLIENT_SECRET || !STRAVA_REFRESH_TOKEN) {
-        return res.status(500).json({ error: "Missing Strava environment variables" });
+        return res.status(500).json({
+            error: "Missing Strava environment variables",
+            hasId: !!STRAVA_CLIENT_ID,
+            hasSecret: !!STRAVA_CLIENT_SECRET,
+            hasToken: !!STRAVA_REFRESH_TOKEN,
+        });
     }
 
     try {
         // Refresh the access token
         const tokenRes = await fetch("https://www.strava.com/oauth/token", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams({
                 client_id: STRAVA_CLIENT_ID,
                 client_secret: STRAVA_CLIENT_SECRET,
                 refresh_token: STRAVA_REFRESH_TOKEN,
@@ -21,7 +26,7 @@ export default async function handler(req, res) {
         const tokenData = await tokenRes.json();
 
         if (!tokenData.access_token) {
-            return res.status(500).json({ error: "Failed to refresh token" });
+            return res.status(500).json({ error: "Failed to refresh token", details: tokenData });
         }
 
         // Fetch latest activity
