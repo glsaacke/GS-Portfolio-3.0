@@ -39,8 +39,8 @@ export default async function handler(req, res) {
 
         const activities = await activityRes.json();
 
-        if (!activities || activities.length === 0) {
-            return res.status(404).json({ error: "No activities found" });
+        if (!Array.isArray(activities) || activities.length === 0) {
+            return res.status(500).json({ error: "Unexpected activities response", details: activities });
         }
 
         const activity = activities[0];
