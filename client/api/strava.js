@@ -54,6 +54,6 @@ export default async function handler(req, res) {
             id: activity.id,
         });
     } catch (err) {
-        return res.status(500).json({ error: "Failed to fetch Strava data" });
+        return res.status(500).json({ error: "Failed to fetch Strava data", message: err.message });
     }
 }
