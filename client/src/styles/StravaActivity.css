@@ -1,0 +1,80 @@
+/* Strava Activity section */
+.strava-container {
+    margin: 40px 0;
+}
+
+.strava-container h2 {
+    margin-bottom: 16px;
+}
+
+.strava-card {
+    display: block;
+    background-color: #363432;
+    border: 2px solid #4a4745;
+    border-radius: 12px;
+    padding: 20px 24px;
+    text-decoration: none;
+    color: white;
+    transition: border-color 0.2s ease;
+}
+
+.strava-card:hover {
+    border-color: #fc4c02;
+    text-decoration: none;
+    color: white;
+}
+
+.strava-card:visited,
+.strava-card:active {
+    color: white;
+    text-decoration: none;
+}
+
+.strava-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.strava-type {
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    color: #fc4c02;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.strava-date {
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    color: #999;
+}
+
+.strava-name {
+    margin: 4px 0 16px;
+}
+
+.strava-stats {
+    display: flex;
+    gap: 40px;
+}
+
+.strava-stat-value {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.strava-stat-label {
+    font-size: 0.95rem;
+    color: #999;
+    margin: 2px 0 0;
+}
+
+.strava-view {
+    margin-top: 16px;
+    font-size: 1rem;
+    color: #fc4c02;
+}

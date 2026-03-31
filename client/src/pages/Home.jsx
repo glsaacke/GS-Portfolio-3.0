@@ -2,6 +2,7 @@ import Intro from "../components/Intro";
 import Experience from "../components/Experience";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
+import StravaActivity from "../components/StravaActivity";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
@@ -12,6 +13,7 @@ const Home = () => {
         <Experience/>
         <Skills/>
         <Projects/>
+        <StravaActivity/>
         <Contact/>
         <Footer/>
     </div> 
