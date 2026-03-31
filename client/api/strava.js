@@ -2,20 +2,15 @@ export default async function handler(req, res) {
     const { STRAVA_CLIENT_ID, STRAVA_CLIENT_SECRET, STRAVA_REFRESH_TOKEN } = process.env;
 
     if (!STRAVA_CLIENT_ID || !STRAVA_CLIENT_SECRET || !STRAVA_REFRESH_TOKEN) {
-        return res.status(500).json({
-            error: "Missing Strava environment variables",
-            hasId: !!STRAVA_CLIENT_ID,
-            hasSecret: !!STRAVA_CLIENT_SECRET,
-            hasToken: !!STRAVA_REFRESH_TOKEN,
-        });
+        return res.status(500).json({ error: "Missing Strava environment variables" });
     }
 
     try {
         // Refresh the access token
         const tokenRes = await fetch("https://www.strava.com/oauth/token", {
             method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams({
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
                 client_id: STRAVA_CLIENT_ID,
                 client_secret: STRAVA_CLIENT_SECRET,
                 refresh_token: STRAVA_REFRESH_TOKEN,
@@ -26,7 +21,7 @@ export default async function handler(req, res) {
         const tokenData = await tokenRes.json();
 
         if (!tokenData.access_token) {
-            return res.status(500).json({ error: "Failed to refresh token", details: tokenData });
+            return res.status(500).json({ error: "Failed to refresh token" });
         }
 
         // Fetch latest activity
@@ -39,8 +34,8 @@ export default async function handler(req, res) {
 
         const activities = await activityRes.json();
 
-        if (!Array.isArray(activities) || activities.length === 0) {
-            return res.status(500).json({ error: "Unexpected activities response", details: activities });
+        if (!activities || activities.length === 0) {
+            return res.status(404).json({ error: "No activities found" });
         }
 
         const activity = activities[0];
@@ -53,7 +48,8 @@ export default async function handler(req, res) {
             date: activity.start_date_local,
             id: activity.id,
         });
+        
     } catch (err) {
-        return res.status(500).json({ error: "Failed to fetch Strava data", message: err.message });
+        return res.status(500).json({ error: "Failed to fetch Strava data" });
     }
 }
