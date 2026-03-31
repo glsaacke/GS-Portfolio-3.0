@@ -42,6 +42,7 @@ GS-Portfolio-3.0/
 │       │   ├── Skills.jsx    # Skills grid section
 │       │   ├── SkillCard.jsx # Individual skill badge with hover effect
 │       │   ├── Projects.jsx  # Projects section with cards
+│       │   ├── Contact.jsx   # Contact Me button + modal with links
 │       │   └── Footer.jsx    # Footer with social links
 │       ├── data/             # Static JSON data files
 │       │   ├── experiences.json
@@ -57,6 +58,7 @@ GS-Portfolio-3.0/
 │           ├── Experience.css
 │           ├── Skills.css
 │           ├── Projects.css
+│           ├── Contact.css
 │           └── HeaderFooter.css
 ```
 
@@ -96,6 +98,12 @@ GS-Portfolio-3.0/
 - Renders project cards from `projects.json`.
 - Each card shows an image, name, description, and links (visit + source code).
 - Project images served from `/projImg/`.
+
+### Contact
+- Centered "Contact Me" button that opens a modal overlay.
+- Modal contains email (mailto link), LinkedIn, and GitHub links with icons.
+- Clicking the overlay backdrop or the close button dismisses the modal.
+- Modal animates in with a fade + slide-up transition.
 
 ### Footer
 - Displays copyright and social links (LinkedIn, GitHub).

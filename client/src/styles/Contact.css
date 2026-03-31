@@ -1,0 +1,130 @@
+/* Contact section */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0 40px;
+}
+
+.contact-btn {
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.3rem;
+    color: white;
+    background-color: #2b2927;
+    padding: 8px 30px;
+    border: 2px white solid;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.contact-btn:hover {
+    background-color: #656565;
+    color: #363432;
+}
+
+/* Modal overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.25s ease;
+}
+
+/* Modal box */
+.modal-content {
+    background-color: #363432;
+    border: 2px solid white;
+    border-radius: 16px;
+    padding: 30px 40px;
+    min-width: 320px;
+    max-width: 420px;
+    position: relative;
+    animation: slideUp 0.3s ease;
+}
+
+.modal-content h3 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+
+.modal-close:hover {
+    opacity: 1;
+}
+
+/* Links inside modal */
+.modal-links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.modal-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.2rem;
+    transition: background-color 0.2s ease;
+}
+
+.modal-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+}
+
+.modal-link:visited,
+.modal-link:active {
+    color: white;
+    text-decoration: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 450px) {
+    .modal-content {
+        min-width: unset;
+        width: 90vw;
+        padding: 24px 20px;
+    }
+}
