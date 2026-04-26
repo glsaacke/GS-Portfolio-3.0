@@ -77,4 +77,5 @@ const StravaActivity = () => {
     );
 }
 
+
 export default StravaActivity;
