@@ -50,19 +50,25 @@ export default async function handler(req, res) {
         }));
 
         // Compute weekly volumes for last 5 weeks (for sparkline)
+        // Use UTC day boundaries to avoid server timezone ambiguity.
+        // Strava's start_date (UTC) is used for all comparisons.
         const now = new Date();
+
+        // Sunday midnight UTC of the current week
+        const currentSundayUTC = new Date(Date.UTC(
+            now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() - now.getUTCDay()
+        ));
+
         const weeklyVolumes = [];
         for (let i = 4; i >= 0; i--) {
-            // Find the most recent Sunday, then go back i more weeks
-            const weekStart = new Date(now);
-            weekStart.setHours(0, 0, 0, 0);
-            weekStart.setDate(weekStart.getDate() - weekStart.getDay() - i * 7);
+            const weekStart = new Date(currentSundayUTC);
+            weekStart.setUTCDate(currentSundayUTC.getUTCDate() - i * 7);
             const weekEnd = new Date(weekStart);
-            weekEnd.setDate(weekStart.getDate() + 7);
+            weekEnd.setUTCDate(weekStart.getUTCDate() + 7);
 
             const total = raw
                 .filter((a) => {
-                    const d = new Date(a.start_date_local);
+                    const d = new Date(a.start_date); // UTC ISO string from Strava
                     return d >= weekStart && d < weekEnd;
                 })
                 .reduce((sum, a) => sum + a.distance, 0);
@@ -70,21 +76,14 @@ export default async function handler(req, res) {
             weeklyVolumes.push(total);
         }
 
-        // Weekly summary: current week vs last week
-        // Build week boundaries by cloning `now` to avoid mutation
-        const todayMidnight = new Date(now);
-        todayMidnight.setHours(0, 0, 0, 0);
+        // Weekly summary: current week vs last week (UTC boundaries)
+        const lastWeekStart = new Date(currentSundayUTC);
+        lastWeekStart.setUTCDate(currentSundayUTC.getUTCDate() - 7);
 
-        const thisWeekStart = new Date(todayMidnight);
-        thisWeekStart.setDate(todayMidnight.getDate() - todayMidnight.getDay());
-
-        const lastWeekStart = new Date(thisWeekStart);
-        lastWeekStart.setDate(thisWeekStart.getDate() - 7);
-
-        const thisWeek = raw.filter((a) => new Date(a.start_date_local) >= thisWeekStart);
+        const thisWeek = raw.filter((a) => new Date(a.start_date) >= currentSundayUTC);
         const lastWeek = raw.filter((a) => {
-            const d = new Date(a.start_date_local);
-            return d >= lastWeekStart && d < thisWeekStart;
+            const d = new Date(a.start_date);
+            return d >= lastWeekStart && d < currentSundayUTC;
         });
 
         const currentDistance = thisWeek.reduce((s, a) => s + a.distance, 0);

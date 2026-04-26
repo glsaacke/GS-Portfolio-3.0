@@ -204,6 +204,7 @@ const StravaActivity = () => {
                             <ActivityCard key={a.id} activity={a} avgDistance={avgDistance} />
                         ))}
                     </div>
+                    <p className="sa-attribution">Live data via Strava API</p>
                 </div>
                 <div className="sa-right">
                     <h3 className="sa-col-title">This Week</h3>

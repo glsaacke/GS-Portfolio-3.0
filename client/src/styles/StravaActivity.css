@@ -1,6 +1,6 @@
 /* ===== Beyond the Code section ===== */
 .sa-container {
-    margin: 0 0 60px;
+    margin: 40px 0 60px;
 }
 
 .sa-container h2 {
@@ -8,7 +8,7 @@
 }
 
 .sa-blurb {
-    color: #999;
+    color: #bbb;
     margin: 0 0 24px;
 }
 
@@ -33,12 +33,12 @@
     flex-shrink: 0;
 }
 
-/* Small uppercase column labels — intentionally tiny */
+/* Small uppercase column labels */
 .sa-col-title {
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #555;
+    color: #aaa;
     margin: 0 0 10px;
     font-weight: 600;
 }
@@ -59,11 +59,10 @@
     text-decoration: none;
     color: white;
     overflow: hidden;
-    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .sa-card:hover {
-    transform: translateY(-5px);
     background-color: #3c3a39;
     border-color: #fc4c02;
     text-decoration: none;
@@ -87,10 +86,9 @@
     margin-bottom: 4px;
 }
 
-/* Small metadata — intentionally smaller than body text */
 .sa-type {
     font-size: 0.85rem;
-    color: #999;
+    color: #bbb;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -98,7 +96,7 @@
 
 .sa-date {
     font-size: 0.85rem;
-    color: #666;
+    color: #aaa;
 }
 
 /* Activity name uses h3 sizing from index.css */
@@ -118,16 +116,15 @@
     gap: 2px;
 }
 
-/* Stat values use default p sizing from index.css */
+/* Stat values inherit p from index.css */
 .sa-stat-value {
     font-weight: 700;
     margin: 0;
 }
 
-/* Intentionally small */
 .sa-stat-label {
-    font-size: 0.78rem;
-    color: #666;
+    font-size: 0.82rem;
+    color: #aaa;
 }
 
 .sa-card-footer {
@@ -138,16 +135,15 @@
     gap: 4px;
 }
 
-/* Intentionally small italic */
 .sa-insight {
-    font-size: 0.82rem;
-    color: #777;
+    font-size: 0.85rem;
+    color: #bbb;
     font-style: italic;
 }
 
-/* Effort labels — intentionally small badge */
+/* Effort labels */
 .sa-effort {
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     font-weight: 600;
     padding: 3px 9px;
     border-radius: 5px;
@@ -156,17 +152,17 @@
 
 .effort-strong {
     color: #4caf50;
-    background-color: rgba(76, 175, 80, 0.12);
+    background-color: rgba(76, 175, 80, 0.15);
 }
 
 .effort-moderate {
-    color: #888;
-    background-color: rgba(255, 255, 255, 0.05);
+    color: #bbb;
+    background-color: rgba(255, 255, 255, 0.07);
 }
 
 .effort-easy {
-    color: #666;
-    background-color: rgba(255, 255, 255, 0.03);
+    color: #999;
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 /* Hover reveal */
@@ -177,26 +173,33 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
-    border-top: 0px solid #3a3835;
+    border-top: 0px solid #4a4745;
     transition: max-height 0.25s ease, padding 0.25s ease, border-top-width 0.25s ease;
 }
 
 .sa-card:hover .sa-card-hover {
     max-height: 120px;
     padding: 12px 20px;
-    border-top: 1px solid #3a3835;
+    border-top: 1px solid #4a4745;
 }
 
-/* Intentionally small */
 .sa-hover-stat {
     font-size: 0.85rem;
-    color: #777;
+    color: #bbb;
 }
 
 .sa-hover-link {
     font-size: 0.85rem;
     color: #fc4c02;
     margin-top: 2px;
+}
+
+/* Live data attribution */
+.sa-attribution {
+    font-size: 0.78rem;
+    color: #888;
+    margin: 10px 0 0;
+    font-style: italic;
 }
 
 /* ===== Weekly summary ===== */
@@ -220,21 +223,19 @@
     gap: 2px;
 }
 
-/* Weekly values use default p sizing from index.css */
+/* Weekly values inherit p from index.css */
 .sa-weekly-value {
     font-weight: 700;
     margin: 0;
 }
 
-/* Intentionally small */
 .sa-weekly-label {
-    font-size: 0.78rem;
-    color: #666;
+    font-size: 0.82rem;
+    color: #aaa;
 }
 
-/* Intentionally small */
 .sa-weekly-change {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     font-weight: 600;
     margin: 0 0 14px;
 }
@@ -244,7 +245,7 @@
 }
 
 .sa-change-down {
-    color: #888;
+    color: #bbb;
 }
 
 /* Sparkline */
@@ -252,25 +253,23 @@
     margin-bottom: 12px;
 }
 
-/* Intentionally small */
 .sa-sparkline-label {
-    font-size: 0.72rem;
-    color: #555;
+    font-size: 0.75rem;
+    color: #aaa;
     margin: 4px 0 0;
 }
 
 .sparkline-bar {
-    fill: #3a3835;
+    fill: #4a4745;
 }
 
 .sparkline-bar--current {
-    fill: #5a5855;
+    fill: #888;
 }
 
-/* Intentionally small */
 .sa-synced {
-    font-size: 0.72rem;
-    color: #555;
+    font-size: 0.75rem;
+    color: #888;
     margin: 0;
 }
 
