@@ -113,7 +113,7 @@ const StravaActivity = () => {
 
     if (loading) return (
         <section className="sa-container">
-            <h2>Beyond the Code</h2>
+            <h2>Off the Clock</h2>
             <p className="sa-blurb sa-blurb--loading">Loading latest activity...</p>
         </section>
     );
@@ -127,7 +127,7 @@ const StravaActivity = () => {
 
     return (
         <section className="sa-container">
-            <h2>Beyond the Code</h2>
+            <h2>Off the Clock</h2>
             <p className="sa-blurb">When I'm not shipping code, I'm usually out logging miles. Here's a look at what I've been up to:</p>
             <div className="sa-activity-list">
                 {activities.map((a) => (
