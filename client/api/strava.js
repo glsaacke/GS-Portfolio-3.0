@@ -24,31 +24,81 @@ export default async function handler(req, res) {
             return res.status(500).json({ error: "Failed to refresh token" });
         }
 
-        // Fetch latest activity
-        const activityRes = await fetch(
-            "https://www.strava.com/api/v3/athlete/activities?per_page=1",
-            {
-                headers: { Authorization: `Bearer ${tokenData.access_token}` },
-            }
+        // Fetch last 30 activities for summary calculations
+        const activitiesRes = await fetch(
+            "https://www.strava.com/api/v3/athlete/activities?per_page=30",
+            { headers: { Authorization: `Bearer ${tokenData.access_token}` } }
         );
 
-        const activities = await activityRes.json();
+        const raw = await activitiesRes.json();
 
-        if (!activities || activities.length === 0) {
+        if (!Array.isArray(raw) || raw.length === 0) {
             return res.status(404).json({ error: "No activities found" });
         }
 
-        const activity = activities[0];
+        // Shape last 5 activities for display
+        const activities = raw.slice(0, 5).map((a) => ({
+            id: a.id,
+            name: a.name,
+            type: a.sport_type,
+            distance: a.distance,
+            movingTime: a.moving_time,
+            date: a.start_date_local,
+            elevationGain: a.total_elevation_gain ?? null,
+            avgHeartRate: a.average_heartrate ?? null,
+            avgSpeed: a.average_speed,
+        }));
+
+        // Compute weekly volumes for last 5 weeks (for sparkline)
+        const now = new Date();
+        const weeklyVolumes = [];
+        for (let i = 4; i >= 0; i--) {
+            const weekStart = new Date(now);
+            // Start of the week (Sunday) i weeks ago
+            weekStart.setDate(now.getDate() - now.getDay() - i * 7);
+            weekStart.setHours(0, 0, 0, 0);
+            const weekEnd = new Date(weekStart);
+            weekEnd.setDate(weekStart.getDate() + 7);
+
+            const total = raw
+                .filter((a) => {
+                    const d = new Date(a.start_date_local);
+                    return d >= weekStart && d < weekEnd;
+                })
+                .reduce((sum, a) => sum + a.distance, 0);
+
+            weeklyVolumes.push(total);
+        }
+
+        // Weekly summary: current week vs last week
+        const thisWeekStart = new Date(now);
+        thisWeekStart.setDate(now.getDate() - now.getDay());
+        thisWeekStart.setHours(0, 0, 0, 0);
+
+        const lastWeekStart = new Date(thisWeekStart);
+        lastWeekStart.setDate(thisWeekStart.getDate() - 7);
+
+        const thisWeek = raw.filter((a) => new Date(a.start_date_local) >= thisWeekStart);
+        const lastWeek = raw.filter((a) => {
+            const d = new Date(a.start_date_local);
+            return d >= lastWeekStart && d < thisWeekStart;
+        });
+
+        const currentDistance = thisWeek.reduce((s, a) => s + a.distance, 0);
+        const currentTime = thisWeek.reduce((s, a) => s + a.moving_time, 0);
+        const lastDistance = lastWeek.reduce((s, a) => s + a.distance, 0);
 
         return res.status(200).json({
-            name: activity.name,
-            type: activity.sport_type,
-            distance: activity.distance,
-            movingTime: activity.moving_time,
-            date: activity.start_date_local,
-            id: activity.id,
+            activities,
+            weeklySummary: {
+                currentDistance,
+                currentTime,
+                lastDistance,
+                weeklyVolumes,
+            },
+            syncedAt: new Date().toISOString(),
         });
-        
+
     } catch (err) {
         return res.status(500).json({ error: "Failed to fetch Strava data" });
     }
