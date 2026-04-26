@@ -49,41 +49,41 @@ export default async function handler(req, res) {
             avgSpeed: a.average_speed,
         }));
 
-        // Compute weekly volumes for last 5 weeks (for sparkline)
-        // Use UTC day boundaries to avoid server timezone ambiguity.
-        // Strava's start_date (UTC) is used for all comparisons.
-        const now = new Date();
+        // --- Week boundary helpers using pure ms arithmetic ---
+        // Avoids all Date mutation bugs and comparison ambiguity.
+        // We parse start_date_local ("2026-04-25T10:00:00") as a local-naive
+        // timestamp by replacing the T with a space, which Node treats as local time.
+        const nowMs = Date.now();
+        const msPerDay = 86400000;
+        const msPerWeek = 7 * msPerDay;
 
-        // Sunday midnight UTC of the current week
-        const currentSundayUTC = new Date(Date.UTC(
-            now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() - now.getUTCDay()
-        ));
+        // Midnight UTC of today
+        const midnightTodayMs = nowMs - (nowMs % msPerDay);
+        // Midnight UTC of the most recent Sunday
+        const dayOfWeek = new Date(nowMs).getUTCDay(); // 0=Sun … 6=Sat
+        const currentSundayMs = midnightTodayMs - dayOfWeek * msPerDay;
+        const lastSundayMs = currentSundayMs - msPerWeek;
 
+        // Parse a Strava start_date_local string to a UTC-equivalent ms timestamp.
+        // "2026-04-25T10:30:00" → treat as UTC for consistent bucketing.
+        const parseActivity = (a) => Date.parse(a.start_date_local.replace("T", " ") + " UTC");
+
+        // Sparkline: volumes for last 5 weeks
         const weeklyVolumes = [];
         for (let i = 4; i >= 0; i--) {
-            const weekStart = new Date(currentSundayUTC);
-            weekStart.setUTCDate(currentSundayUTC.getUTCDate() - i * 7);
-            const weekEnd = new Date(weekStart);
-            weekEnd.setUTCDate(weekStart.getUTCDate() + 7);
-
+            const weekStartMs = currentSundayMs - i * msPerWeek;
+            const weekEndMs = weekStartMs + msPerWeek;
             const total = raw
-                .filter((a) => {
-                    const d = new Date(a.start_date); // UTC ISO string from Strava
-                    return d >= weekStart && d < weekEnd;
-                })
+                .filter((a) => { const t = parseActivity(a); return t >= weekStartMs && t < weekEndMs; })
                 .reduce((sum, a) => sum + a.distance, 0);
-
             weeklyVolumes.push(total);
         }
 
-        // Weekly summary: current week vs last week (UTC boundaries)
-        const lastWeekStart = new Date(currentSundayUTC);
-        lastWeekStart.setUTCDate(currentSundayUTC.getUTCDate() - 7);
-
-        const thisWeek = raw.filter((a) => new Date(a.start_date) >= currentSundayUTC);
+        // Weekly summary
+        const thisWeek = raw.filter((a) => parseActivity(a) >= currentSundayMs);
         const lastWeek = raw.filter((a) => {
-            const d = new Date(a.start_date);
-            return d >= lastWeekStart && d < currentSundayUTC;
+            const t = parseActivity(a);
+            return t >= lastSundayMs && t < currentSundayMs;
         });
 
         const currentDistance = thisWeek.reduce((s, a) => s + a.distance, 0);

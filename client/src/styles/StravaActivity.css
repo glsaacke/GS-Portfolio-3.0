@@ -8,7 +8,6 @@
 }
 
 .sa-blurb {
-    color: #bbb;
     margin: 0 0 24px;
 }
 
@@ -38,7 +37,7 @@
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #aaa;
+    color: white
     margin: 0 0 10px;
     font-weight: 600;
 }
@@ -197,7 +196,7 @@
 /* Live data attribution */
 .sa-attribution {
     font-size: 0.78rem;
-    color: #888;
+    color: white;
     margin: 10px 0 0;
     font-style: italic;
 }
