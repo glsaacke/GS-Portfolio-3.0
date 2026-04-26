@@ -11,9 +11,9 @@ const Home = () => {
     <div className="home-container">
         <Intro/>
         <Experience/>
-        <StravaActivity/>
         <Skills/>
         <Projects/>
+        <StravaActivity/>
         <Contact/>
         <Footer/>
     </div> 
