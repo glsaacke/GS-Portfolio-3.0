@@ -28,7 +28,6 @@ const formatSpeed = (metersPerSec, type) => {
 const activityIcon = (type) =>
     ({ Ride: "🚴", Run: "🏃", Walk: "🚶", Swim: "🏊", Hike: "🥾", Workout: "💪" }[type] || "🏅");
 
-// Effort level based on distance vs average of other recent activities
 const getEffort = (distance, avgDistance) => {
     if (!avgDistance) return { label: "Moderate", cls: "effort-moderate" };
     const ratio = distance / avgDistance;
@@ -45,32 +44,7 @@ const getInsight = (distance, avgDistance) => {
     return "About average distance";
 };
 
-// --- Sub-components ---
-
-const Sparkline = ({ values }) => {
-    if (!values || values.length === 0) return null;
-    const max = Math.max(...values, 1);
-    const W = 130, H = 36, barW = 18;
-    const gap = (W - barW * values.length) / (values.length - 1);
-    return (
-        <svg width={W} height={H} className="sparkline">
-            {values.map((v, i) => {
-                const barH = Math.max((v / max) * H, v > 0 ? 3 : 0);
-                return (
-                    <rect
-                        key={i}
-                        x={i * (barW + gap)}
-                        y={H - barH}
-                        width={barW}
-                        height={barH}
-                        rx={3}
-                        className={`sparkline-bar${i === values.length - 1 ? " sparkline-bar--current" : ""}`}
-                    />
-                );
-            })}
-        </svg>
-    );
-};
+// --- ActivityCard ---
 
 const ActivityCard = ({ activity, avgDistance }) => {
     const effort = getEffort(activity.distance, avgDistance);
@@ -107,7 +81,6 @@ const ActivityCard = ({ activity, avgDistance }) => {
                     <span className={`sa-effort ${effort.cls}`}>{effort.label}</span>
                 </div>
             </div>
-            {/* Hover-reveal details */}
             <div className="sa-card-hover">
                 {activity.elevationGain != null && (
                     <span className="sa-hover-stat">↑ {Math.round(activity.elevationGain * 3.28084)} ft gain</span>
@@ -118,45 +91,6 @@ const ActivityCard = ({ activity, avgDistance }) => {
                 <span className="sa-hover-link">View on Strava →</span>
             </div>
         </a>
-    );
-};
-
-const WeeklySummary = ({ summary, syncedAt }) => {
-    const { currentDistance, currentTime, lastDistance, weeklyVolumes } = summary;
-    const pctChange = lastDistance > 0
-        ? Math.round(((currentDistance - lastDistance) / lastDistance) * 100)
-        : null;
-    const syncMins = syncedAt
-        ? Math.round((Date.now() - new Date(syncedAt).getTime()) / 60000)
-        : null;
-
-    return (
-        <div className="sa-weekly">
-            <div className="sa-weekly-stats">
-                <div className="sa-weekly-stat">
-                    <span className="sa-weekly-value">{formatDistance(currentDistance)}</span>
-                    <span className="sa-weekly-label">Distance</span>
-                </div>
-                <div className="sa-weekly-stat">
-                    <span className="sa-weekly-value">{formatTime(currentTime)}</span>
-                    <span className="sa-weekly-label">Time</span>
-                </div>
-            </div>
-            {pctChange !== null && (
-                <p className={`sa-weekly-change ${pctChange >= 0 ? "sa-change-up" : "sa-change-down"}`}>
-                    {pctChange >= 0 ? "+" : ""}{pctChange}% vs last week
-                </p>
-            )}
-            <div className="sa-sparkline-wrap">
-                <Sparkline values={weeklyVolumes} />
-                <p className="sa-sparkline-label">Last 5 weeks</p>
-            </div>
-            {syncMins !== null && (
-                <p className="sa-synced">
-                    Synced {syncMins < 1 ? "just now" : `${syncMins}m ago`}
-                </p>
-            )}
-        </div>
     );
 };
 
@@ -185,9 +119,8 @@ const StravaActivity = () => {
     );
     if (error || !data) return null;
 
-    const { activities, weeklySummary, syncedAt } = data;
+    const { activities } = data;
 
-    // Average distance of all but the most recent, used for derived insights
     const avgDistance = activities.length > 1
         ? activities.slice(1).reduce((s, a) => s + a.distance, 0) / (activities.length - 1)
         : null;
@@ -196,21 +129,12 @@ const StravaActivity = () => {
         <section className="sa-container">
             <h2>Beyond the Code</h2>
             <p className="sa-blurb">When I'm not shipping code, I'm usually out logging miles. Here's a look at what I've been up to:</p>
-            <div className="sa-layout">
-                <div className="sa-left">
-                    <h3 className="sa-col-title">Recent Activity</h3>
-                    <div className="sa-activity-list">
-                        {activities.map((a) => (
-                            <ActivityCard key={a.id} activity={a} avgDistance={avgDistance} />
-                        ))}
-                    </div>
-                    <p className="sa-attribution">Live data via Strava API</p>
-                </div>
-                <div className="sa-right">
-                    <h3 className="sa-col-title">This Week</h3>
-                    <WeeklySummary summary={weeklySummary} syncedAt={syncedAt} />
-                </div>
+            <div className="sa-activity-list">
+                {activities.map((a) => (
+                    <ActivityCard key={a.id} activity={a} avgDistance={avgDistance} />
+                ))}
             </div>
+            <p className="sa-attribution">Live data via Strava API</p>
         </section>
     );
 };
