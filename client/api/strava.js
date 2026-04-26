@@ -36,8 +36,8 @@ export default async function handler(req, res) {
             return res.status(404).json({ error: "No activities found" });
         }
 
-        // Shape last 5 activities for display
-        const activities = raw.slice(0, 5).map((a) => ({
+        // Shape last 3 activities for display
+        const activities = raw.slice(0, 3).map((a) => ({
             id: a.id,
             name: a.name,
             type: a.sport_type,
@@ -53,10 +53,10 @@ export default async function handler(req, res) {
         const now = new Date();
         const weeklyVolumes = [];
         for (let i = 4; i >= 0; i--) {
+            // Find the most recent Sunday, then go back i more weeks
             const weekStart = new Date(now);
-            // Start of the week (Sunday) i weeks ago
-            weekStart.setDate(now.getDate() - now.getDay() - i * 7);
             weekStart.setHours(0, 0, 0, 0);
+            weekStart.setDate(weekStart.getDate() - weekStart.getDay() - i * 7);
             const weekEnd = new Date(weekStart);
             weekEnd.setDate(weekStart.getDate() + 7);
 
@@ -71,9 +71,12 @@ export default async function handler(req, res) {
         }
 
         // Weekly summary: current week vs last week
-        const thisWeekStart = new Date(now);
-        thisWeekStart.setDate(now.getDate() - now.getDay());
-        thisWeekStart.setHours(0, 0, 0, 0);
+        // Build week boundaries by cloning `now` to avoid mutation
+        const todayMidnight = new Date(now);
+        todayMidnight.setHours(0, 0, 0, 0);
+
+        const thisWeekStart = new Date(todayMidnight);
+        thisWeekStart.setDate(todayMidnight.getDate() - todayMidnight.getDay());
 
         const lastWeekStart = new Date(thisWeekStart);
         lastWeekStart.setDate(thisWeekStart.getDate() - 7);

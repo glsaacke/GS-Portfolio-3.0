@@ -10,8 +10,8 @@ const Home = () => {
     return ( 
     <div className="home-container">
         <Intro/>
-        <StravaActivity/>
         <Experience/>
+        <StravaActivity/>
         <Skills/>
         <Projects/>
         <Contact/>

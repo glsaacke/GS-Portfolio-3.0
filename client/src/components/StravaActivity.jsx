@@ -132,7 +132,6 @@ const WeeklySummary = ({ summary, syncedAt }) => {
 
     return (
         <div className="sa-weekly">
-            <h3 className="sa-col-title">This Week</h3>
             <div className="sa-weekly-stats">
                 <div className="sa-weekly-stat">
                     <span className="sa-weekly-value">{formatDistance(currentDistance)}</span>
@@ -207,6 +206,7 @@ const StravaActivity = () => {
                     </div>
                 </div>
                 <div className="sa-right">
+                    <h3 className="sa-col-title">This Week</h3>
                     <WeeklySummary summary={weeklySummary} syncedAt={syncedAt} />
                 </div>
             </div>
