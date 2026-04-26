@@ -1,0 +1,289 @@
+/* ===== Off the Clock section ===== */
+.sa-container {
+    margin: 40px 0;
+}
+
+.sa-container h2 {
+    margin-bottom: 8px;
+}
+
+.sa-blurb {
+    margin: 0 0 24px;
+}
+
+.sa-blurb--loading {
+    font-style: italic;
+}
+
+/* 2-column layout */
+.sa-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.sa-left {
+    flex: 1;
+    min-width: 0;
+}
+
+.sa-right {
+    width: 220px;
+    flex-shrink: 0;
+}
+
+/* Small uppercase column labels */
+.sa-col-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: white
+    margin: 0 0 10px;
+    font-weight: 600;
+}
+
+/* Activity list */
+.sa-activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Activity card — matches project card style */
+.sa-card {
+    display: block;
+    background-color: #2b2927;
+    border: 2px solid white;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    overflow: hidden;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.sa-card:hover {
+    background-color: #3c3a39;
+    border-color: #fc4c02;
+    text-decoration: none;
+    color: white;
+}
+
+.sa-card:visited,
+.sa-card:active {
+    color: white;
+    text-decoration: none;
+}
+
+.sa-card-main {
+    padding: 16px 20px;
+}
+
+.sa-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.sa-type {
+    font-size: 0.85rem;
+    color: #bbb;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.sa-date {
+    font-size: 0.85rem;
+    color: #aaa;
+}
+
+/* Activity name uses h3 sizing from index.css */
+.sa-name {
+    margin: 4px 0 14px;
+}
+
+.sa-stats {
+    display: flex;
+    gap: 28px;
+    margin-bottom: 14px;
+}
+
+.sa-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* Stat values inherit p from index.css */
+.sa-stat-value {
+    font-weight: 700;
+    margin: 0;
+}
+
+.sa-stat-label {
+    font-size: 0.82rem;
+    color: #aaa;
+}
+
+.sa-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.sa-insight {
+    font-size: 0.85rem;
+    color: #bbb;
+    font-style: italic;
+}
+
+/* Effort labels */
+.sa-effort {
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 5px;
+    letter-spacing: 0.03em;
+}
+
+.effort-strong {
+    color: #4caf50;
+    background-color: rgba(76, 175, 80, 0.15);
+}
+
+.effort-moderate {
+    color: #bbb;
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+.effort-easy {
+    color: #999;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Hover reveal */
+.sa-card-hover {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-top: 0px solid #4a4745;
+    transition: max-height 0.25s ease, padding 0.25s ease, border-top-width 0.25s ease;
+}
+
+.sa-card:hover .sa-card-hover {
+    max-height: 120px;
+    padding: 12px 20px;
+    border-top: 1px solid #4a4745;
+}
+
+.sa-hover-stat {
+    font-size: 0.85rem;
+    color: #bbb;
+}
+
+.sa-hover-link {
+    font-size: 0.85rem;
+    color: #fc4c02;
+    margin-top: 2px;
+}
+
+/* Live data attribution */
+.sa-attribution {
+    font-size: 1rem;
+    color: white;
+    margin: 10px 0 0;
+    font-style: italic;
+}
+
+/* ===== Weekly summary ===== */
+.sa-weekly {
+    background-color: #2b2927;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 16px 20px;
+}
+
+.sa-weekly-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.sa-weekly-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* Weekly values inherit p from index.css */
+.sa-weekly-value {
+    font-weight: 700;
+    margin: 0;
+}
+
+.sa-weekly-label {
+    font-size: 0.82rem;
+    color: #aaa;
+}
+
+.sa-weekly-change {
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin: 0 0 14px;
+}
+
+.sa-change-up {
+    color: #4caf50;
+}
+
+.sa-change-down {
+    color: #bbb;
+}
+
+/* Sparkline */
+.sa-sparkline-wrap {
+    margin-bottom: 12px;
+}
+
+.sa-sparkline-label {
+    font-size: 0.75rem;
+    color: #aaa;
+    margin: 4px 0 0;
+}
+
+.sparkline-bar {
+    fill: #4a4745;
+}
+
+.sparkline-bar--current {
+    fill: #888;
+}
+
+.sa-synced {
+    font-size: 0.75rem;
+    color: #888;
+    margin: 0;
+}
+
+/* Responsive — stack on narrow screens */
+@media (max-width: 700px) {
+    .sa-layout {
+        flex-direction: column;
+    }
+
+    .sa-right {
+        width: 100%;
+    }
+
+    .sa-weekly-stats {
+        flex-direction: row;
+        gap: 24px;
+    }
+}

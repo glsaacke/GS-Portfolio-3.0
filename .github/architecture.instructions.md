@@ -27,6 +27,9 @@ GS-Portfolio-3.0/
 │   ├── package.json
 │   ├── vite.config.js
 │   ├── eslint.config.js
+│   ├── vercel.json
+│   ├── api/
+│   │   └── strava.js         # Vercel serverless function — Strava OAuth refresh + activity fetch
 │   ├── public/               # Static assets served at root
 │   │   ├── expImg/           # Experience/education company logos (.png)
 │   │   ├── projImg/          # Project screenshots/images
@@ -42,6 +45,7 @@ GS-Portfolio-3.0/
 │       │   ├── Skills.jsx    # Skills grid section
 │       │   ├── SkillCard.jsx # Individual skill badge with hover effect
 │       │   ├── Projects.jsx  # Projects section with cards
+│       │   ├── StravaActivity.jsx # "Off the Clock" section — live Strava activity cards
 │       │   ├── Contact.jsx   # Contact Me button + modal with links
 │       │   └── Footer.jsx    # Footer with social links
 │       ├── data/             # Static JSON data files
@@ -58,6 +62,7 @@ GS-Portfolio-3.0/
 │           ├── Experience.css
 │           ├── Skills.css
 │           ├── Projects.css
+│           ├── StravaActivity.css
 │           ├── Contact.css
 │           └── HeaderFooter.css
 ```
@@ -67,7 +72,7 @@ GS-Portfolio-3.0/
 1. **`index.html`** — Loads Google Fonts, Bootstrap 3 CSS (CDN), and particles.js (CDN). Contains `#root` and `#particles-js` divs.
 2. **`main.jsx`** — Mounts `<App />` inside `<BrowserRouter>` and `<StrictMode>`.
 3. **`App.jsx`** — Initializes particles.js background via `useEffect`. Defines a single route (`/`) pointing to `<Home />`.
-4. **`Home.jsx`** — Composes the page: `Intro → Experience → Skills → Projects → Footer`.
+4. **`Home.jsx`** — Composes the page: `Intro → Experience → Skills → Projects → Off the Clock (StravaActivity) → Contact → Footer`.
 
 ## Component Details
 
@@ -98,6 +103,15 @@ GS-Portfolio-3.0/
 - Renders project cards from `projects.json`.
 - Each card shows an image, name, description, and links (visit + source code).
 - Project images served from `/projImg/`.
+
+### StravaActivity ("Off the Clock")
+- Fetches live data from the Vercel serverless function at `/api/strava` on mount.
+- Displays the 3 most recent Strava activities as cards (`ActivityCard`).
+- Each card shows: activity type icon, name, date, distance, moving time, pace/speed, and an effort label derived by comparing the activity's distance to the average of the other recent activities.
+- Cards have a hover-reveal panel showing elevation gain, average heart rate, and a "View on Strava →" link.
+- Attribution line ("Live data via Strava API") is rendered below the cards.
+- Strava OAuth credentials (`STRAVA_CLIENT_ID`, `STRAVA_CLIENT_SECRET`, `STRAVA_REFRESH_TOKEN`) are stored as Vercel environment variables and never exposed to the client.
+- The serverless function (`client/api/strava.js`) handles the OAuth refresh token flow, fetches 30 activities, and returns the 3 most recent shaped for display.
 
 ### Contact
 - Centered "Contact Me" button that opens a modal overlay.
