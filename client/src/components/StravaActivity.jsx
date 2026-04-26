@@ -49,7 +49,8 @@ const StravaActivity = () => {
 
     return (
         <section className="strava-container">
-            <h2>Latest Activity</h2>
+            <h2>Beyond the Code</h2>
+            <p className="strava-blurb">When I'm not building software, I'm usually outside on a bike or on the track. Here's what I've been up to lately:</p>
             <a
                 className="strava-card"
                 href={`https://www.strava.com/activities/${activity.id}`}

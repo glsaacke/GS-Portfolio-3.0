@@ -10,10 +10,10 @@ const Home = () => {
     return ( 
     <div className="home-container">
         <Intro/>
+        <StravaActivity/>
         <Experience/>
         <Skills/>
         <Projects/>
-        <StravaActivity/>
         <Contact/>
         <Footer/>
     </div> 

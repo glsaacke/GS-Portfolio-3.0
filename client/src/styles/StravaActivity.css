@@ -4,7 +4,13 @@
 }
 
 .strava-container h2 {
-    margin-bottom: 16px;
+    margin-bottom: 8px;
+}
+
+.strava-blurb {
+    color: #999;
+    margin: 0 0 16px;
+    font-size: 1rem;
 }
 
 .strava-card {
